@@ -15,10 +15,10 @@
             //Exercise4_2.Run();
 
             ////  4.3 Validation
-            //Exercise4_3.Run();
+            Exercise4_3.Run();
 
             //// 4.4 More options
-            Exercise4_4.Run();
+            //Exercise4_4.Run();
 
             //Exercise4_4_Alternative.Run();
 
