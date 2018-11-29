@@ -5,7 +5,20 @@ namespace M6_Classes.DemoClasses
 {
     public class Demo1
     {
-        // todo: gör klassen Car
+        class Car
+        {
+            string color;
+
+            public void SetColor(string xxx)
+            {
+                color = xxx;
+            }
+
+            public string GetColor()
+            {
+                return color;
+            }
+        }
 
         public void Run()
         {
@@ -16,13 +29,9 @@ namespace M6_Classes.DemoClasses
             c1.SetColor("blå");
             c2.SetColor("röd");
 
-            var yyy = c1.GetColor();
-            var zzz = c2.GetColor();
-            var qqq = c3.GetColor();
-
-            Console.WriteLine("Färgen på bilen 'c1' är " + yyy);
-            Console.WriteLine("Färgen på bilen 'c2' är " + zzz);
-            Console.WriteLine("Färgen på bilen 'c3' är " + qqq);
+            Console.WriteLine("Färgen på bilen 'c1' är " + c1.GetColor());
+            Console.WriteLine("Färgen på bilen 'c2' är " + c2.GetColor());
+            Console.WriteLine("Färgen på bilen 'c3' är " + c3.GetColor());
         }
     }
 }
