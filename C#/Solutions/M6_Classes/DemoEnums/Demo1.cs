@@ -20,9 +20,12 @@ namespace M6_Classes.DemoEnums
             public decimal Price { get; set; }
             public bool NeedMaintenance { get; set; }
             public string ProductName { get; set; }
-            public CoffeMachineColor Color { get; set; }
-            public CoffeMachineMaterial Material { get; set; }
+            //public string Color { get; set; } 
+            //public string Material { get; set; } 
+            public CoffeMachineColor Color { get; set; } 
+            public CoffeMachineMaterial Material { get; set; } 
         }
+
 
         public void Run()
         {
@@ -32,10 +35,10 @@ namespace M6_Classes.DemoEnums
                 Price = 123,
                 NeedMaintenance = false,
                 ProductName = "Sage the Barista",
+                //Color = "White",
+                //Material = "Plastic",
                 Color = CoffeMachineColor.White,
                 Material = CoffeMachineMaterial.Plastic
-                //Color = CoffeMachineColor.White,
-                //Material = CoffeMachineMaterial.Plastic
             };
 
             if (x.Color == CoffeMachineColor.White)

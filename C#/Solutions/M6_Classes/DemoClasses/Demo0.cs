@@ -1,4 +1,6 @@
-﻿// Syfte: visa hur dåligt det blir om inte klasser används
+﻿// todo: gör övningar av dessa filer!
+
+// Syfte: visa hur dåligt det blir om inte klasser används
 
 using System;
 

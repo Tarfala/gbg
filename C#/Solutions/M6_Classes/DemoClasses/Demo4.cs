@@ -6,7 +6,23 @@ namespace M6_Classes.DemoClasses
 {
     public class Demo4
     {
-        // todo: skapa klassen Car med properties
+        class Car
+        {
+            public int Weight { get; set; }
+            public string Color { get; set; }
+
+            public Car(string c, int w)
+            {
+                Color = c;
+                Weight = w;
+            }
+
+            public Car()
+            {
+                Color = "lila";
+                Weight = 999;
+            }
+        }
 
         public void Run()
         {
