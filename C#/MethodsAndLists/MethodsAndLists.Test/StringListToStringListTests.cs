@@ -18,8 +18,6 @@ namespace MethodsAndLists.Test
         [DataRow(null, new string[] { "b", "d" }, new[] { "a", "b", "c", "d", "e" })]
         public void GetEverySecondElement_MultipleTests(object dummy, string[] expected, string[] input)
         {
-            Assert.ThrowsException<ArgumentNullException>(() => x.GetEverySecondElement(null).ToArray());
-
             CollectionAssert.AreEqual(expected, x.GetEverySecondElement(input).ToArray());
         }
 
