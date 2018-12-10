@@ -38,14 +38,33 @@ namespace MethodsAndLists.Core
             throw new NotImplementedException();
         }
 
+
         public int ComputeSequenceSumOrProduct(int toNumber, bool sum)
         {
-            throw new NotImplementedException();
+            if (sum)
+                return ComputeSequence(toNumber, ComputeMethod.Sum);
+            else
+                return ComputeSequence(toNumber, ComputeMethod.Product);
         }
 
         public int ComputeSequence(int toNumber, ComputeMethod sum)
         {
-            throw new NotImplementedException();
+            if (toNumber <= 0)
+                throw new ArgumentException();
+
+            var range = Enumerable.Range(1, toNumber).ToList();
+
+            switch (sum)
+            {
+                case ComputeMethod.Sum:
+                    return range.Sum();
+
+                case ComputeMethod.Product:
+                    return range.Aggregate((a, b) => a * b);
+
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         public int[] CombineLists(int[] list1, int[] list2)
