@@ -59,8 +59,10 @@ namespace MethodsAndLists.Test
 
             CollectionAssert.AreEqual(new List<string> { "c", "d", "e" },
                 x.NearbyElements(3, new List<string> { "a", "b", "c", "d", "e" }));
+
             CollectionAssert.AreEqual(new List<string> { "a", "b" },
                 x.NearbyElements(0, new List<string> { "a", "b", "c", "d", "e" }));
+
             CollectionAssert.AreEqual(new List<string> { "d", "e" },
                 x.NearbyElements(4, new List<string> { "a", "b", "c", "d", "e" }));
         }

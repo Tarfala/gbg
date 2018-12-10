@@ -25,7 +25,20 @@ namespace MethodsAndLists.Core
 
         public List<string> NearbyElements(int position, List<string> list)
         {
-            throw new NotImplementedException();
+            if (position < 0 || position > list.Count - 1)
+                throw new ArgumentException();
+
+            var result = new List<string>();
+
+            if (position > 0)
+                result.Add(list[position - 1]);
+
+            result.Add(list[position]);
+
+            if (position < list.Count - 1)
+                result.Add(list[position + 1]);
+
+            return result;
         }
 
         public List<List<int>> MultiplicationTable(int rowMax, int colMax)
