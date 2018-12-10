@@ -81,14 +81,30 @@ namespace MethodsAndLists.Core
 
         public List<List<int>> MultiplicationTable(int rowMax, int colMax)
         {
-            throw new NotImplementedException();
+            if (rowMax <= 0 || colMax <= 0)
+                throw new ArgumentException();
+
+            var result = new List<List<int>>();
+            for (int rowNumber = 1; rowNumber <= rowMax; rowNumber++)
+            {
+                var row = new List<int>();
+                for (int colNumber = 1; colNumber <= colMax; colNumber++)
+                {
+                    row.Add(rowNumber * colNumber);
+                }
+                result.Add(row);
+            }
+
+            return result;
         }
 
         public List<List<int>> MultiplicationTable_Linq(int rowMax, int colMax)
         {
-            throw new NotImplementedException();
-        }
+            if (rowMax <= 0 || colMax <= 0)
+                throw new ArgumentException();
 
+            return Enumerable.Range(1, rowMax).Select(r => Enumerable.Range(1, colMax).Select(c => c * r).ToList()).ToList();
+        }
 
         public int ComputeSequenceSumOrProduct(int toNumber, bool sum)
         {
