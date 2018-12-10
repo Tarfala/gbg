@@ -10,18 +10,56 @@ namespace MethodsAndLists.Core
     {
         public List<string> SomeToUpper(List<string> list, List<bool> toUpper)
         {
-            throw new NotImplementedException();
+            var result = new List<string>();
+            int index = 0;
+            foreach (var word in list)
+            {
+                if (toUpper[index] == true)
+                    result.Add(word.ToUpper());
+                else
+                    result.Add(word);
+                index++;
+            }
+
+            return result;
         }
 
+        public List<string> SomeToUpper_Linq(List<string> list, List<bool> toUpper)
+        {
+            return list.Select((x, index) => toUpper[index] ?
+
+                    list[index].ToUpper() :
+                    list[index]
+
+            ).ToList();
+        }
+
+        public List<string> SomeToUpper_Zip(List<string> list, List<bool> toUpper)
+        {
+            return list.Zip(toUpper, (x, up) => up ? x.ToUpper() : x).ToList();
+        }
         public List<double> MultiplyAllBy(int factor, List<double> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                throw new ArgumentException();
+
+            var result = new List<double>();
+            foreach (var number in numbers)
+            {
+                result.Add(number * factor);
+            }
+
+            return result;
         }
 
         public List<double> MultiplyAllBy_Linq(int factor, List<double> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+                throw new ArgumentException();
+
+            return numbers.Select(n => n * factor).ToList();
         }
+
 
         public List<string> NearbyElements(int position, List<string> list)
         {
