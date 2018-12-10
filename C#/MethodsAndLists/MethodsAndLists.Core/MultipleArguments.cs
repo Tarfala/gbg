@@ -136,7 +136,18 @@ namespace MethodsAndLists.Core
 
         public int[] CombineLists(int[] list1, int[] list2)
         {
-            throw new NotImplementedException();
+            var result = new List<int>();
+
+            for (int i = 0; i < Math.Max(list1.Length, list2.Length); i++)
+            {
+                if (i <= list1.Length - 1)
+                    result.Add(list1[i]);
+
+                if (i <= list2.Length - 1)
+                    result.Add(list2[i]);
+            }
+
+            return result.ToArray();
         }
 
         public int[] RotateList(int[] list, int rotation)
