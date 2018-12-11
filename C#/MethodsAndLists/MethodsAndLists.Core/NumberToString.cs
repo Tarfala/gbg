@@ -1,28 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MethodsAndLists.Core
 {
     public class NumberToString
     {
-        public string Triangle(int height)
+
+        public string Triangle(int height, char symbol = '*')
         {
-            throw new NotImplementedException();
+            if (height < 0)
+                throw new ArgumentException();
+
+            List<string> starList = new List<string>();
+
+            for (int i = 1; i <= height; i++)
+                starList.Add(new string(symbol, i));
+
+            return string.Join('\n', starList);
         }
 
-        public string Triangle(int height, char symbol)
+        public string TriangleReversed(int height, char symbol = '*')
         {
-            throw new NotImplementedException();
-        }
+            if (height < 0)
+                throw new ArgumentException();
 
-        public string TriangleReversed(int height)
-        {
-            throw new NotImplementedException();
-        }
+            List<string> starList = new List<string>();
 
+            for (int i = height; i >= 1; i--)
+                starList.Add(new string(symbol, i));
+
+            return string.Join('\n', starList);
+        }
 
     }
 }
