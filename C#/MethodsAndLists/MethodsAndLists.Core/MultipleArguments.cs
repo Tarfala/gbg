@@ -150,9 +150,67 @@ namespace MethodsAndLists.Core
             return result.ToArray();
         }
 
+
+        public int[] RotateList_Queue(int[] list, int rotation)
+        {
+            if (list == null)
+                throw new ArgumentException();
+
+            if (list.Length == 0)
+                return list;
+
+            int movetoleft = (rotation < 0 ? -rotation : list.Length - rotation) % list.Length;
+
+            var q = new Queue<int>(list);
+
+            for (int i = 0; i < movetoleft; i++)
+                q.Enqueue(q.Dequeue()); // ta bort det första elementet och lägg det sist
+
+            return q.ToArray();
+        }
+
+        public int[] RotateList_KG_Special(int[] list, int rotation)
+        {
+            if (list == null)
+                throw new ArgumentException();
+
+            return list.Select((_, index) => list[(index - rotation + list.Length) % list.Length]).ToArray();
+        }
+
         public int[] RotateList(int[] list, int rotation)
         {
-            throw new NotImplementedException();
+            // list         0 1 2 3 4 5 6
+            // rotation     2
+            // result       5 6 0 1 2 3 4
+            // startIndex   length - rotation = 7 - 2 = 5
+
+            // list         0 1 2 3 4 5 6
+            // rotation     -2
+            // result       2 3 4 5 6 0 1
+            // startIndex   -rotation = 2
+
+            if (list == null)
+                throw new ArgumentException();
+
+            if (list.Length == 0)
+                return list;
+
+            // Beräkna startIndex
+
+            int startIndex = rotation % list.Length; // rotation 8 är samma som rotation 1 (om längden på listan är 7)
+            if (startIndex >= 0)
+                startIndex = list.Length - rotation;
+            else
+                startIndex = -rotation;
+
+            // Plocka ut första och sista delen i listan
+
+            var firstPart = list.Skip(startIndex);
+            var lastPart = list.Take(startIndex);
+
+            // Foga ihop listorna
+
+            return firstPart.Concat(lastPart).ToArray();
         }
     }
 }
