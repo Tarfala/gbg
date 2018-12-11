@@ -177,6 +177,21 @@ namespace MethodsAndLists.Core
             return list.Select((_, index) => list[(index - rotation + list.Length) % list.Length]).ToArray();
         }
 
+        public int[] RotateList_Magnus_Recursion(int[] list, int rotation)
+        {
+            if (list == null) throw new ArgumentException();
+            if (list.Length == 0) return list;
+
+            //rotation = rotation % list.Length; // kan användas för att minska repetitionerna till mindre än två list.längder
+            if (rotation < 0) // Stegar bakåt
+                return RotateList_Magnus_Recursion(list.Select((x, i) => list[(i + 1) % list.Length]).ToArray(), rotation + 1);
+
+            else if (rotation > 0) // Stegar framåt
+                return RotateList_Magnus_Recursion(list.Select((x, i) => list[(i - 1 + list.Length) % list.Length]).ToArray(), rotation - 1);
+
+            return list;
+        }
+
         public int[] RotateList(int[] list, int rotation)
         {
             // list         0 1 2 3 4 5 6
